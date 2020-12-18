@@ -1,0 +1,31 @@
+{% extends 'series/base1.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+<h1 style= "color:#ffffff; font-size: 2.5rem; font-style: italic;" > Popular Series </h1>
+    <div class="card" style="background-color:#F2AA4CFF;">
+       <div class="card-body">
+          <div class="row">
+            {% for series in series %}
+            <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="text-center">
+                      <a href=" {% url 'series:detail' series.id %} "><img src="{{ series.image }}" alt="" class="img.fluid" width="75%"></a>
+                      <h3 class="text-center">{{ series.name }}</h3>
+                      <div class="text-center"></div>
+                      <i> {{ series.release_Date }} </i>
+                      
+                    </div>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+</div>            
+
+
+{% endblock %}
